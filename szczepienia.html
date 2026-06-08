@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szczepienia - Ochrona Siebie i Innych</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f4f8 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #8B4513;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            background: #8B4513;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 28px;
+        }
+
+        .info-box {
+            background: #f0f8ff;
+            border-left: 5px solid #4169E1;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #4169E1;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27AE60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #F5DEB3 0%, #DEB887 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .benefits-section h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-item::before {
+            content: '❤️';
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .how-works {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .how-works h3 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 auto 15px;
+        }
+
+        .step-title {
+            color: #2E7D32;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .myths-section {
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFB6C1 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .myths-section h3 {
+            color: #C71585;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .myth-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #E91E63;
+        }
+
+        .myth-title {
+            color: #C71585;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .myth-title::before {
+            content: '✗';
+            background: #E91E63;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .myth-text {
+            color: #555;
+            font-size: 14px;
+            margin-left: 34px;
+        }
+
+        .fact-title {
+            color: #27AE60;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .fact-title::before {
+            content: '✓';
+            background: #27AE60;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .fact-text {
+            color: #555;
+            font-size: 14px;
+            margin-left: 34px;
+        }
+
+        .mandatory-section {
+            background: linear-gradient(135deg, #B0E0E6 0%, #87CEEB 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .mandatory-section h3 {
+            color: #00526B;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .vaccine-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .vaccine-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00526B;
+        }
+
+        .vaccine-item strong {
+            color: #00526B;
+        }
+
+        .footer-message {
+            background: linear-gradient(135deg, #4A7C7E 0%, #5B8E8F 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .footer-message strong {
+            display: block;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .footer-message p {
+            margin: 5px 0;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, #DC143C 0%, #FF1493 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .call-to-action h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .call-to-action p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vaccine-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ SZCZEPIENIA</h1>
+            <p>Ochrona Siebie i Innych</p>
+        </div>
+
+        <div class="content">
+            <!-- JAK DZIAŁAJĄ SZCZEPIENIA -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-icon">⚙️</div>
+                    JAK DZIAŁAJĄ SZCZEPIENIA?
+                </div>
+                <div class="how-works">
+                    <h3>Proces działania szczepionek krok po kroku:</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <p><strong>Immunizacja</strong></p>
+                            <p style="font-size: 12px;">Wstrzyknięcie osłabionego lub nieaktywnego wirusa</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <p><strong>Rozpoznanie</strong></p>
+                            <p style="font-size: 12px;">Układ odpornościowy poznaje zagrożenie</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <p><strong>Wytworzenie Obrony</strong></p>
+                            <p style="font-size: 12px;">Tworzenie przeciwciał i limfocytów</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <p><strong>Pamięć Immunologiczna</strong></p>
+                            <p style="font-size: 12px;">Organizm pamięta i walczy szybciej</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DLACZEGO WARTO -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-icon">❤️</div>
+                    DLACZEGO WARTO SIĘ SZCZEPIĆ?
+                </div>
+                <div class="benefits-section">
+                    <h3>Korzyści ze szczepień:</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">Chronisz siebie przed poważnymi chorobami</div>
+                        <div class="benefit-item">Chroniš swoją rodzinę i bliskich</div>
+                        <div class="benefit-item">Zapobiegasz powikłaniom zdrowotnym</div>
+                        <div class="benefit-item">Wspierasz zdrowość publiczną całej społeczności</div>
+                        <div class="benefit-item">Unikasz kosztownego leczenia w przyszłości</div>
+                        <div class="benefit-item">Zachowujesz aktywny tryb życia bez obaw</div>
+                        <div class="benefit-item">Wspierasz osoby niemogące się szczepić</div>
+                        <div class="benefit-item">Zmniejszasz rozprzestrzenianie się chorób</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAKTY I MITY -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-icon">💬</div>
+                    FAKTY I MITY
+                </div>
+                <div class="myths-section">
+                    <h3>Rozwiązmy popularne mity:</h3>
+                    
+                    <div class="myth-item">
+                        <div class="myth-title">MIT: Szczepionki powodują autyzm</div>
+                        <div class="myth-text">Wiele badań naukowych jednoznacznie wykazało, że nie ma żadnego związku między szczepionkami a autyzmem. To jeden z największych i najgroźniejszych mitów medycznych.</div>
+                        <div class="fact-title">FAKT: Szczepionki są dokładnie testowane</div>
+                        <div class="fact-text">Każda szczepionka przechodzi przez wiele lat badań klinicznych i nadzoru przed zatwierdzeniem. Producenci muszą udowodnić bezpieczeństwo i skuteczność.</div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-title">MIT: Mój organizm rozwinie naturalną odporność bez szczepień</div>
+                        <div class="myth-text">Organizm może rzeczywiście wyrobić odporność, ale kosztem zachorowania na potencjalnie śmiertelną chorobę.</div>
+                        <div class="fact-title">FAKT: Każdy może zachorować na choroby zakaźne</div>
+                        <div class="fact-text">Nawet zdolni i zdrowi ludzie mogą ciężko zachorować. Szczepienia oferują ochronę bez ryzyka powikłań wynikających z faktycznego zachorowania.</div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-title">MIT: Szczepionki zawierają niebezpieczne substancje</div>
+                        <div class="myth-text">Składniki szczepionek są obecne w śladowych ilościach i zostały potwierdzone jako bezpieczne przez międzynarodowe organy zdrowia.</div>
+                        <div class="fact-title">FAKT: Szczepionki przechodzą ścisłą kontrolę jakości</div>
+                        <div class="fact-text">Każda partia szczepionek jest testowana na czystość, sterylność i potencę. Standarty były nigdy wcześniej tak rygorystyczne jak teraz.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SZCZEPIENIA OBOWIĄZKOWE W POLSCE -->
+            <div class="section">
+                <div class="section-title">
+                    <div class="section-icon">📋</div>
+                    SZCZEPIENIA OBOWIĄZKOWE W POLSCE
+                </div>
+                <div class="mandatory-section">
+                    <h3>Harmonogram obowiązkowych szczepień:</h3>
+                    <div class="vaccine-list">
+                        <div class="vaccine-item">
+                            <strong>🍼 BCG</strong><br>
+                            <span style="font-size: 13px;">Tuberkuloza - w ciągu 24h po urodzeniu</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>💉 Polio (DPT)</strong><br>
+                            <span style="font-size: 13px;">Paraliz dziecięcy, Dyfteryt, Tężec - 2, 3, 4, 18 miesiące</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>🦠 WZW B</strong><br>
+                            <span style="font-size: 13px;">Zapalenie wątroby typu B - w ciągu 24h po urodzeniu</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>🦠 WZW A</strong><br>
+                            <span style="font-size: 13px;">Zapalenie wątroby typu A - od 12 miesiąca</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>😷 Grypa</strong><br>
+                            <span style="font-size: 13px;">Dorośli i dzieci od 6 miesiąca rocznie</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>🌡️ Odrą, Świnka, Różyczka</strong><br>
+                            <span style="font-size: 13px;">Od 13 miesiąca i ponownie od 10 lat</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>🐕 COVID-19</strong><br>
+                            <span style="font-size: 13px;">Od 6 miesięcy - schemat szczepienia zależy od wieku</span>
+                        </div>
+                        <div class="vaccine-item">
+                            <strong>💪 HPV (Papillomavirus)</strong><br>
+                            <span style="font-size: 13px;">Młodzież w wieku 12-13 lat (chłopcy i dziewczęta)</span>
+                        </div>
+                    </div>
+                    <div class="info-box" style="margin-top: 20px;">
+                        <h3>ℹ️ Informacja ważna</h3>
+                        <p>Szczepienia obowiązkowe są bezpłatne dla wszystkich obywateli Polski. Harmonogram szczepień obowiązkowych może być aktualizowany. Zawsze konsultuj się z pediatrą lub lekarzem rodzinnym, aby poznać aktualny harmonogram szczepień dla Twojego dziecka.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEZWANIE DO DZIAŁANIA -->
+            <div class="call-to-action">
+                <h2>🔔 PAMIĘTAJ!</h2>
+                <p><strong>"LEPIEJ ZAPOBIEGAĆ NIŻ LECZYĆ"</strong></p>
+                <p style="margin-top: 15px;">Regularne szczepienia to skuteczna ochrona zdrowia całego społeczeństwa.</p>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer-message">
+                <strong>💙 ZASZCZEP W SOBIE ODPOWIEDZIALNOŚĆ!</strong>
+                <p>DLA SIEBIE. DLA BLISKICH. DLA NAS WSZYSTKICH.</p>
+            </div>
+
+            <div style="text-align: center; color: #666; margin-top: 20px; font-size: 12px;">
+                <p>Opracowano na podstawie: Ministerstwo Zdrowia, WHO, GIS</p>
+                <p>Data utworzenia: czerwiec 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funkcja do pobierania jako PDF
+        window.addEventListener('load', function() {
+            // Sprawdzenie czy dostępna jest biblioteka print
+            console.log('Aby zapisać jako PDF: Ctrl+P (lub Cmd+P na Mac) i wybierz "Zapisz jako PDF"');
+        });
+    </script>
+</body>
+</html>
